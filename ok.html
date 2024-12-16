@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temperature Gauge</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex justify-center items-center min-h-screen bg-white">
+
+  <div class="relative w-64 h-64">
+    <!-- Background Arc -->
+    <div class="absolute inset-0 rounded-full border-[20px] border-gray-200 border-b-transparent"></div>
+
+    <!-- Temperature Text -->
+    <div class="absolute inset-0 flex justify-center items-center">
+      <span id="temperature-text" class="text-orange-400 text-3xl font-bold">17.21 °C</span>
+    </div>
+
+    <!-- Markers -->
+    <div class="absolute inset-0 flex justify-center items-center">
+      <div class="w-full h-full relative">
+        <!-- Add numbers -->
+        <div class="absolute text-gray-500 text-sm transform -translate-x-1/2 -translate-y-1/2 left-[15%] top-[85%]">0</div>
+        <div class="absolute text-gray-500 text-sm transform -translate-x-1/2 -translate-y-1/2 left-[50%] top-[85%]">30</div>
+        <div class="absolute text-gray-500 text-sm transform -translate-x-1/2 -translate-y-1/2 left-[85%] top-[85%]">60</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function updateGauge(temperature) {
+      document.getElementById('temperature-text').textContent = `${temperature.toFixed(2)} °C`;
+    }
+
+    // Example: Set temperature to 17.21
+    updateGauge(18.21);
+  </script>
+
+</body>
+</html>
